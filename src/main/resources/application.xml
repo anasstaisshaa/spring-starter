@@ -3,8 +3,12 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+    <bean id="driver" class="java.lang.String">
+        <constructor-arg type="java.lang.String" value="PostgresDriver"/>
+    </bean>
+
     <bean id="pool1" class="edu.AnastasiiaTkachuk.spring.database.pool.ConnectionPool">
-        <constructor-arg name="username" value="postgres"/>
+        <constructor-arg name="username" ref="driver"/>
         <constructor-arg name="poolSize" value="10"/>
         <constructor-arg name="args">
             <list>
@@ -13,11 +17,15 @@
             </list>
         </constructor-arg>
         <constructor-arg name="properties">
+            <null/>
+        </constructor-arg>
+        <property name="properties">
             <map>
-                <entry key="url" value="postgresurl"/>
+                <entry key="url" value="posgresurl"/>
+                <entry key="password" value="123"/>
                 <entry key="password" value="123"/>
             </map>
-        </constructor-arg>
+        </property>
     </bean>
 
     <bean name="companyRepository" class="edu.AnastasiiaTkachuk.spring.database.repository.CompanyRepository"
