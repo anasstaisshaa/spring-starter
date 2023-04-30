@@ -19,5 +19,9 @@
             </map>
         </constructor-arg>
     </bean>
-<!--    <bean id="pool2" class="edu.AnastasiiaTkachuk.spring.database.pool.ConnectionPool"/>-->
+
+    <bean name="companyRepository" class="edu.AnastasiiaTkachuk.spring.database.repository.CompanyRepository"
+          factory-method="of">
+        <constructor-arg name="connectionPool" ref="pool1"/>
+    </bean>
 </beans>
