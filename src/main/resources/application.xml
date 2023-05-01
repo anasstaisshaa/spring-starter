@@ -1,17 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                             http://www.springframework.org/schema/beans/spring-beans.xsd
+                             http://www.springframework.org/schema/context
+                             http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+    <context:property-placeholder location="application.properties"/>
+<!--    <bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">-->
+<!--        <property name="locations" value="application.properties"/>-->
+<!--    </bean>-->
 
     <bean id="driver" class="java.lang.String">
-        <constructor-arg type="java.lang.String" value="PostgresDriver"/>
+        <constructor-arg type="java.lang.String" value="${db.driver}"/>
     </bean>
 
     <bean id="pool1" class="edu.AnastasiiaTkachuk.spring.database.pool.ConnectionPool"
           init-method="init"
           destroy-method="destroy">
-        <constructor-arg name="username" ref="driver"/>
-        <constructor-arg name="poolSize" value="10"/>
+        <constructor-arg name="username" value="${db.username}"/>
+        <constructor-arg name="poolSize" value="${db.pool.size}"/>
         <constructor-arg name="args">
             <list>
                 <value>--arg1=value1</value>
@@ -25,7 +34,8 @@
             <map>
                 <entry key="url" value="posgresurl"/>
                 <entry key="password" value="123"/>
-                <entry key="password" value="123"/>
+                <entry key="driver" value="#{driver.substring(3)}"/>
+                <entry key="test" value="#{driver.length() > 10}"/>
             </map>
         </property>
     </bean>
