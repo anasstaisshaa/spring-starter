@@ -12,6 +12,9 @@
 <!--        <property name="locations" value="application.properties"/>-->
 <!--    </bean>-->
 
+    <bean class="edu.AnastasiiaTkachuk.spring.bfpp.LogBeanFactoryPostProcessor"/>
+    <bean class="edu.AnastasiiaTkachuk.spring.bfpp.VerifyPropertyBeanFactoryPostProcessor"/>
+
     <bean id="driver" class="java.lang.String">
         <constructor-arg type="java.lang.String" value="${db.driver}"/>
     </bean>

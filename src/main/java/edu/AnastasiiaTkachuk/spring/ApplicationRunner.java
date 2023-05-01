@@ -8,6 +8,7 @@ public class ApplicationRunner {
     public static void main(String[] args) {
         CompanyRepository companyRepository;
         try (ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("application.xml")) {
+
             ConnectionPool connectionPool = context.getBean("pool1", ConnectionPool.class);
             System.out.println(connectionPool);
 
