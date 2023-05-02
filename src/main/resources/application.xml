@@ -7,7 +7,7 @@
                              http://www.springframework.org/schema/context
                              http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
-    <context:annotation-config/>
+    <context:component-scan base-package="edu.AnastasiiaTkachuk.spring"/>
     <context:property-placeholder location="application.properties"/>
 <!--    <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>-->
 
@@ -15,38 +15,23 @@
 <!--        <property name="locations" value="application.properties"/>-->
 <!--    </bean>-->
 
-    <bean class="edu.AnastasiiaTkachuk.spring.database.bpp.InjectBeanPostProcessor"/>
-    <bean class="edu.AnastasiiaTkachuk.spring.database.bpp.TransactionalBeanPostProcessor"/>
-    <bean class="edu.AnastasiiaTkachuk.spring.database.bpp.AuditingBeanPostProcessor"/>
-    <bean class="edu.AnastasiiaTkachuk.spring.bfpp.LogBeanFactoryPostProcessor"/>
-    <bean class="edu.AnastasiiaTkachuk.spring.bfpp.VerifyPropertyBeanFactoryPostProcessor"/>
+<!--    <constructor-arg name="args">-->
+<!--        <list>-->
+<!--            <value>&#45;&#45;arg1=value1</value>-->
+<!--            <value>&#45;&#45;arg2=value2</value>-->
+<!--        </list>-->
+<!--    </constructor-arg>-->
+<!--    <property name="properties">-->
+<!--        <map>-->
+<!--            <entry key="url" value="posgresurl"/>-->
+<!--            <entry key="password" value="123"/>-->
+<!--            <entry key="driver" value="#{driver.substring(3)}"/>-->
+<!--            <entry key="test" value="#{driver.length() > 10}"/>-->
+<!--        </map>-->
+<!--    </property>-->
 
     <bean id="driver" class="java.lang.String">
         <constructor-arg type="java.lang.String" value="${db.driver}"/>
     </bean>
 
-    <bean id="pool2" class="edu.AnastasiiaTkachuk.spring.database.pool.ConnectionPool"/>
-    <bean id="pool1" class="edu.AnastasiiaTkachuk.spring.database.pool.ConnectionPool">
-        <constructor-arg name="username" value="${db.username}"/>
-        <constructor-arg name="poolSize" value="${db.pool.size}"/>
-        <constructor-arg name="args">
-            <list>
-                <value>--arg1=value1</value>
-                <value>--arg2=value2</value>
-            </list>
-        </constructor-arg>
-        <constructor-arg name="properties">
-            <null/>
-        </constructor-arg>
-        <property name="properties">
-            <map>
-                <entry key="url" value="posgresurl"/>
-                <entry key="password" value="123"/>
-                <entry key="driver" value="#{driver.substring(3)}"/>
-                <entry key="test" value="#{driver.length() > 10}"/>
-            </map>
-        </property>
-    </bean>
-
-    <bean name="companyRepository" class="edu.AnastasiiaTkachuk.spring.database.repository.CompanyRepository"/>
 </beans>
