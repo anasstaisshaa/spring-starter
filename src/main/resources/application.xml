@@ -15,6 +15,8 @@
 <!--        <property name="locations" value="application.properties"/>-->
 <!--    </bean>-->
 
+    <bean class="edu.AnastasiiaTkachuk.spring.database.bpp.InjectBeanPostProcessor"/>
+    <bean class="edu.AnastasiiaTkachuk.spring.database.bpp.TransactionalBeanPostProcessor"/>
     <bean class="edu.AnastasiiaTkachuk.spring.bfpp.LogBeanFactoryPostProcessor"/>
     <bean class="edu.AnastasiiaTkachuk.spring.bfpp.VerifyPropertyBeanFactoryPostProcessor"/>
 
@@ -44,8 +46,5 @@
         </property>
     </bean>
 
-    <bean name="companyRepository" class="edu.AnastasiiaTkachuk.spring.database.repository.CompanyRepository"
-          factory-method="of">
-        <constructor-arg name="connectionPool" ref="pool1"/>
-    </bean>
+    <bean name="companyRepository" class="edu.AnastasiiaTkachuk.spring.database.repository.CompanyRepository"/>
 </beans>
