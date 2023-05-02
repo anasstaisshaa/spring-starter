@@ -17,6 +17,7 @@
 
     <bean class="edu.AnastasiiaTkachuk.spring.database.bpp.InjectBeanPostProcessor"/>
     <bean class="edu.AnastasiiaTkachuk.spring.database.bpp.TransactionalBeanPostProcessor"/>
+    <bean class="edu.AnastasiiaTkachuk.spring.database.bpp.AuditingBeanPostProcessor"/>
     <bean class="edu.AnastasiiaTkachuk.spring.bfpp.LogBeanFactoryPostProcessor"/>
     <bean class="edu.AnastasiiaTkachuk.spring.bfpp.VerifyPropertyBeanFactoryPostProcessor"/>
 
