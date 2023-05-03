@@ -7,7 +7,11 @@
                              http://www.springframework.org/schema/context
                              http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
-    <context:component-scan base-package="edu.AnastasiiaTkachuk.spring"/>
+    <context:component-scan base-package="edu.AnastasiiaTkachuk.spring"
+                            annotation-config="true"
+                            scoped-proxy="no"
+                            scope-resolver=""
+                            use-default-filters="true"/>
     <context:property-placeholder location="application.properties"/>
 <!--    <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>-->
 

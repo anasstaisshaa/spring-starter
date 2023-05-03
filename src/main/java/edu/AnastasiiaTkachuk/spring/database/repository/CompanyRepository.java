@@ -8,6 +8,8 @@ import edu.AnastasiiaTkachuk.spring.database.pool.ConnectionPool;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.PostConstruct;
@@ -16,6 +18,7 @@ import java.util.List;
 import java.util.Optional;
 @Repository
 @Transaction
+@Scope(BeanDefinition.SCOPE_SINGLETON)
 @Auditing
 public class CompanyRepository implements CrudRepository<Integer, Company>{
     private final ConnectionPool pool1;
