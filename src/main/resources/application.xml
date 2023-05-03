@@ -7,10 +7,6 @@
                              http://www.springframework.org/schema/context
                              http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
-    <context:component-scan base-package="edu.AnastasiiaTkachuk.spring"
-                            annotation-config="true"
-                            scoped-proxy="no"
-                            use-default-filters="true"/>
 <!--    <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>-->
 
 <!--    <bean class="org.springframework.context.support.PropertySourcesPlaceholderConfigurer">-->
@@ -32,8 +28,8 @@
 <!--        </map>-->
 <!--    </property>-->
 
-    <bean id="driver" class="java.lang.String">
-        <constructor-arg type="java.lang.String" value="${db.driver}"/>
-    </bean>
+<!--    <bean id="driver" class="java.lang.String">-->
+<!--        <constructor-arg type="java.lang.String" value="${db.driver}"/>-->
+<!--    </bean>-->
 
 </beans>
