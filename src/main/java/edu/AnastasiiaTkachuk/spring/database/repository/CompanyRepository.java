@@ -16,8 +16,8 @@ import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import java.util.List;
 import java.util.Optional;
-@Repository
 @Transaction
+@Repository
 @Scope(BeanDefinition.SCOPE_SINGLETON)
 @Auditing
 public class CompanyRepository implements CrudRepository<Integer, Company>{
