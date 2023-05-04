@@ -4,6 +4,7 @@ import edu.AnastasiiaTkachuk.spring.config.ApplicationConfiguration;
 import edu.AnastasiiaTkachuk.spring.database.pool.ConnectionPool;
 import edu.AnastasiiaTkachuk.spring.database.repository.CompanyRepository;
 import edu.AnastasiiaTkachuk.spring.database.repository.CrudRepository;
+import edu.AnastasiiaTkachuk.spring.service.CompanyService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -18,8 +19,8 @@ public class ApplicationRunner {
             ConnectionPool connectionPool = context.getBean("pool1", ConnectionPool.class);
             System.out.println(connectionPool);
 
-            CrudRepository companyRepository = context.getBean("companyRepository", CrudRepository.class);
-            System.out.println(companyRepository.findById(1));
+            CompanyService companyService = context.getBean("companyService", CompanyService.class);
+            System.out.println(companyService.findById(1));
         }
     }
 }
