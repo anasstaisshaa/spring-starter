@@ -10,14 +10,6 @@ import org.springframework.stereotype.Component;
 
 @Import(WebConfiguration.class)
 @Configuration
-@PropertySource("classpath:application.properties")
-@ComponentScan(basePackages ="edu.AnastasiiaTkachuk.spring",
-        useDefaultFilters = false,
-        includeFilters = {
-                @ComponentScan.Filter(type = FilterType.ANNOTATION, value = Component.class),
-                @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, value = CrudRepository.class),
-                @ComponentScan.Filter(type = FilterType.REGEX, pattern = "edu\\..+Repository")
-        })
 public class ApplicationConfiguration {
         @Bean
         public ConnectionPool pool2(@Value("${db.username}") String username){
