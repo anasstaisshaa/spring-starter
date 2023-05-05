@@ -1,13 +1,10 @@
 package edu.AnastasiiaTkachuk.spring.database.pool;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
-import java.util.List;
-import java.util.Map;
 
 @Component("pool1")
 public class ConnectionPool {
