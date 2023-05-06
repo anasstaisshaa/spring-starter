@@ -26,3 +26,6 @@ logging:
   level:
     root: warn
     edu.AnastasiiaTkachuk.spring.database.pool.ConnectionPool: info
+  file:
+    name: AnastasiiaTkachuk.log
+    path: /
