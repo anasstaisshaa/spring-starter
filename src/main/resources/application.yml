@@ -4,6 +4,10 @@ db:
   driver: PostgresDriver
   url: postgres:5432
   host: localhost
+  properties:
+    first: 123
+    second: 567
+    third.value: Third
   pool:
     size: 12
     timeout: 10
